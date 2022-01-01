@@ -68,7 +68,7 @@ func main() {
 	c.SetName02("bar")
 	fmt.Println(c.name)
 
-	// goroutine 使用pass by address時要注意thread safe的問題, 資料可能被別的協程改掉
+	// goroutine 使用pass by address時要注意race condition的問題, 資料可能被別的協程改掉
 	e := &email{}
 	for i := 0; i < 10; i++ {
 		go func(i int) {
